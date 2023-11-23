@@ -1,0 +1,361 @@
+
+/* Importing the Poppins font from Google Fonts */
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap);
+
+/* Resetting default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins' , sans-serif;
+}
+
+/* Setting the body's background color and text color */
+body 
+{
+    /*background: #081b29; black color*/
+    color: #ededed;
+}
+
+/* Creating the header with a fixed position */
+.header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+/* Styling the logo link */
+.logo
+{
+    position: relative;
+    font-size:25px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+}
+.logo::before 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRigh 1s ease forwards;
+    animation-delay: .4s;
+    opacity: 15%;
+
+}
+/* Styling the navigation bar links */
+.navbar a
+{
+    font-size: 18px;
+    color: #ededed ;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left:  35px;
+    transition: .3s;
+}
+
+/* Changing the color of the active link and the link when hovered */
+.navbar a:hover,
+.navbar a.active
+{
+    color: #00abf0;
+}
+
+/* Styling the home section */
+.Home
+{
+    height: 100vh;
+    background:url(/Index/home.jpg.jpg);
+    background-size: cover;
+    background-position: center;
+    /*background: url(home)no-repeat; add pic for BG*/
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    opacity: 100%;
+}
+
+/* Limiting the width of the home content */
+.home-content{
+    max-width: 600px;
+}
+
+/* Styling the home content headings */
+.home-content h1
+{
+    position: relative;
+    font-size: 56px;
+    font-weight: 700px;
+    line-height: 1.2;
+}
+.home-content h1::before 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRigh 1s ease forwards;
+    animation-delay: 1s;
+    opacity: 8%;
+
+}
+
+.home-content h3
+{
+    position: relative;
+    font-size:  32px;
+    font-weight: 700px;
+    color: #00abf0;
+}
+.home-content h3::before 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRigh 1s ease forwards;
+    animation-delay: 1.3s;
+    opacity: 5%;
+
+}
+
+/* Styling the home content paragraph */
+.home-content p 
+{
+    position: relative;
+    font-size: 20px;
+    margin: 20px 0 40px;
+    color:#ededed;
+    
+}
+
+.home-content p::before 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRigh 1s ease forwards;
+    animation-delay: 1.6s;
+    opacity: 8%;
+
+}
+
+/* Styling the button container */
+.home-content .btn-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 345px;
+    height: 50px;
+    /*background-color: yellowgreen; add this to see spacing in div*/
+}
+.home-content .btn-box::before 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRigh 1s ease forwards;
+    animation-delay: 1s;
+    opacity: 10%;
+    z-index: 2;
+
+}
+
+/* Styling the buttons */
+.btn-box a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height:  100%;
+    background:#00abf0;
+    border: 2px solid #00abf0;
+    border-radius: 8px;
+    font-size: 19px;
+    color: #081b29;
+    text-decoration: none;
+    font-weight:  500;
+    letter-spacing: 1px ;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.btn-box a:hover 
+{
+color: #00abf0;
+}
+.btn-box a:nth-child(2) 
+{
+background: transparent;
+color: #00abf0
+}
+.btn-box a:nth-child(2):hover 
+{
+    color:#081b29
+}
+.btn-box a:nth-child(2)::before
+{
+    background:#00abf0;
+}
+
+.btn-box a::before 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: #081b29;
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn-box a:hover::before
+{
+    width: 100%;
+}
+
+.home-sci
+{
+  position: absolute;
+  bottom: 40px;  
+  width: 170px;
+  /* background: red; see pacing socials*/
+  display: flex;
+  justify-content: space-between;
+}
+.home-sci::before 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRigh 1s ease forwards;
+    animation-delay: 2.5s;
+    opacity: 10%;
+    z-index: 2;
+
+}
+
+.home-sci a 
+{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background:transparent;
+    border: 2px solid #00abf0;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #00abf0;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+
+}
+.home-sci a:hover
+{
+    color: #081b29;
+}
+
+.home-sci a::before
+{
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 0%;
+   height: 100%;
+   background: #00abf0;
+   z-index: -1;
+   transition: .5s;
+}
+.home-sci a:hover::before
+{
+width: 100%;
+}
+
+.home-imgHover
+{
+   position: absolute;
+   top: 0;
+   right: 30px;
+   width: 500px;
+   height: 100%;
+   background: transparent;
+   /*border: 2px solid red; mark around right hand side space*/
+   transition: 3s;
+   animation: maniActiveHover .1s forwards;
+   animation-delay: 4s;
+   pointer-events: none;
+}
+.home-imgHover:hover 
+{
+    background: #081b29;
+    opacity: .8;
+}
+.home-imgHover::after 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120%;
+    height: 100%;
+    background: #081b29;
+    animation: showRigh 1s ease forwards;
+    animation-delay: 3s;
+    opacity: 10%;
+    z-index: 100;
+
+}
+
+
+/*KEYFRAMES ANIMATION*/
+
+@keyframes showRigh {
+    100%{
+        width: 0;
+    }
+}
+/* @keyframes maniActiveHover {
+    100%{
+        pointer-events: auto;
+    }
+}
+*/
