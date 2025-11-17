@@ -1,0 +1,24 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#1a1a1a"/>
+
+  <!-- Red border -->
+  <rect x="2" y="2" width="396" height="396" fill="none" stroke="#ff0000" stroke-width="4"/>
+
+  <!-- Profile icon circle -->
+  <circle cx="200" cy="150" r="60" fill="none" stroke="#ff0000" stroke-width="3"/>
+
+  <!-- Profile icon head -->
+  <circle cx="200" cy="140" r="25" fill="#ff0000"/>
+
+  <!-- Profile icon body -->
+  <path d="M 160 190 Q 160 170 180 170 L 220 170 Q 240 170 240 190 L 240 210 L 160 210 Z" fill="#ff0000"/>
+
+  <!-- Text -->
+  <text x="200" y="280" font-family="monospace" font-size="20" fill="#00ff00" text-anchor="middle">YOUR PHOTO HERE</text>
+  <text x="200" y="310" font-family="monospace" font-size="14" fill="#ff0000" text-anchor="middle">Replace this placeholder</text>
+  <text x="200" y="335" font-family="monospace" font-size="12" fill="#808080" text-anchor="middle">assets/images/profile.jpg</text>
+
+  <!-- Terminal prompt style -->
+  <text x="20" y="380" font-family="monospace" font-size="12" fill="#00ff00">root@portfolio:~$</text>
+</svg>
