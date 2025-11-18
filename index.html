@@ -12,11 +12,12 @@
 
     <!-- ========================================
          STYLESHEETS
-         Load in order: theme → widgets → main
+         Load in order: theme → widgets → main → admin
          ======================================== -->
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/widgets.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
 
     <!-- ========================================
          FONTS - Optional: Add custom fonts here
@@ -242,11 +243,52 @@
     </footer>
 
     <!-- ========================================
+         ADMIN PANEL
+         Drag-and-drop widget manager
+         Toggle with Ctrl+Shift+A or click button
+         ======================================== -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h3 class="admin-title">
+                <span class="terminal-prompt">root@admin:~$</span> Widget Manager
+            </h3>
+            <button class="admin-close" id="adminClose" aria-label="Close admin panel">✕</button>
+        </div>
+
+        <div class="admin-content">
+            <div class="admin-instructions">
+                <p>💡 <strong>Drag and drop</strong> widgets to reorder them</p>
+                <p>📌 Changes are saved automatically to your browser</p>
+                <p>🔄 Click "Reset Order" to restore default layout</p>
+            </div>
+
+            <div class="admin-actions">
+                <button class="btn btn-secondary" id="resetWidgetOrder">
+                    🔄 Reset Order
+                </button>
+                <button class="btn btn-ghost" id="exportLayout">
+                    💾 Export Layout
+                </button>
+            </div>
+
+            <div class="widget-list" id="widgetList">
+                <!-- Widget items will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin toggle button (floating) -->
+    <button class="admin-toggle" id="adminToggle" title="Admin Panel (Ctrl+Shift+A)">
+        ⚙️
+    </button>
+
+    <!-- ========================================
          JAVASCRIPT FILES
-         Load in order: config → widgets → main
+         Load in order: config → widgets → admin → main
          ======================================== -->
     <script src="js/config.js"></script>
     <script src="js/widgets.js"></script>
+    <script src="js/admin.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

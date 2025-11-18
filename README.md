@@ -5,6 +5,7 @@ A modern, widget-based portfolio website designed specifically for red team oper
 ## 🎯 Features
 
 - **Widget-Based Architecture**: Modular design with independent, reusable widgets
+- **🆕 Drag-and-Drop Admin Panel**: Visually reorder widgets without coding!
 - **Easy Customization**: All content managed through a single `config.js` file
 - **Red Team Theme**: Dark cybersecurity aesthetic with terminal-style elements
 - **Fully Responsive**: Optimized for all devices (desktop, tablet, mobile)
@@ -25,11 +26,13 @@ doganwauters.github.io/
 ├── css/                    # Stylesheets directory
 │   ├── theme.css          # Color scheme and base styling
 │   ├── widgets.css        # Widget-specific styles
-│   └── main.css           # Additional layout and utilities
+│   ├── main.css           # Additional layout and utilities
+│   └── admin.css          # Admin panel styling
 │
 ├── js/                     # JavaScript directory
 │   ├── config.js          # ⭐ MAIN CONFIGURATION FILE
 │   ├── widgets.js         # Widget rendering logic
+│   ├── admin.js           # Admin panel functionality
 │   └── main.js            # Core functionality (nav, scroll, etc.)
 │
 └── assets/                 # Media assets directory
@@ -87,6 +90,70 @@ npx http-server
 ```
 
 Then visit `http://localhost:8000`
+
+## ⚙️ Admin Panel - Widget Manager
+
+The portfolio includes a **drag-and-drop admin panel** that lets you reorder widgets visually without editing code!
+
+### How to Access
+
+**Three ways to open the admin panel:**
+1. **Click the gear icon** (⚙️) in the bottom-right corner
+2. **Press `Ctrl+Shift+A`** on your keyboard
+3. **Press `Escape`** to close the panel
+
+### Features
+
+#### 🎯 Drag and Drop Reordering
+- Simply drag widgets up or down to change their order
+- Changes are saved automatically to your browser
+- The new order persists across page reloads
+
+#### 👁️ Show/Hide Widgets
+- Toggle individual widgets on/off
+- Hidden widgets won't show on your portfolio
+- Great for temporarily hiding sections you're still working on
+
+#### 🔄 Reset to Default
+- Click "Reset Order" to restore the original layout
+- Clears all saved customizations
+- Page will reload with default settings
+
+#### 💾 Export Layout
+- Export your current widget configuration
+- Useful for backing up your layout
+- Share your layout with others
+
+### How It Works
+
+The admin panel uses **browser localStorage** to save your preferences:
+- **Widget order**: Saved as JSON array of widget IDs
+- **Widget visibility**: Saved as JSON object
+- **No server required**: Everything is client-side
+
+### Technical Details
+
+**Files:**
+- `js/admin.js` - Admin panel logic (index.html:290)
+- `css/admin.css` - Admin panel styling (index.html:20)
+- localStorage keys: `portfolio_widget_order`, `portfolio_widget_visibility`
+
+**Keyboard Shortcuts:**
+- `Ctrl+Shift+A` - Toggle admin panel
+- `Escape` - Close admin panel
+
+### Customization
+
+You can modify the admin panel behavior in `js/admin.js`:
+
+```javascript
+// Change storage keys
+STORAGE_KEY: 'your_custom_key',
+VISIBILITY_KEY: 'your_visibility_key',
+
+// Exclude widgets from reordering
+// Edit the filter in populateWidgetList() method
+```
 
 ## 📝 Customization Guide
 
