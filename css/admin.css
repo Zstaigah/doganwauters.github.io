@@ -1,0 +1,454 @@
+/* ============================================
+   ADMIN PANEL STYLES
+   Drag-and-drop widget management interface
+   ============================================ */
+
+/* ========================================
+   ADMIN TOGGLE BUTTON
+   Floating button to open admin panel
+   ======================================== */
+.admin-toggle {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: var(--color-text-primary);
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    font-size: var(--font-size-2xl);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-fixed);
+    box-shadow: 0 0 30px var(--color-primary-glow);
+    transition: all var(--transition-base);
+    animation: pulse-glow 2s infinite;
+}
+
+.admin-toggle:hover {
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 0 40px var(--color-primary-glow);
+}
+
+/* Pulse animation for admin button */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px var(--color-primary-glow);
+    }
+    50% {
+        box-shadow: 0 0 40px var(--color-primary-glow);
+    }
+}
+
+/* ========================================
+   ADMIN PANEL
+   Sliding panel from the right
+   ======================================== */
+.admin-panel {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 450px;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-primary));
+    border-left: 2px solid var(--color-border);
+    box-shadow: -10px 0 50px rgba(0, 0, 0, 0.8);
+    z-index: var(--z-modal);
+    transition: right var(--transition-base);
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+}
+
+/* Active state - slide in */
+.admin-panel.active {
+    right: 0;
+}
+
+/* ========================================
+   ADMIN HEADER
+   Panel title and close button
+   ======================================== */
+.admin-header {
+    background-color: var(--color-bg-tertiary);
+    border-bottom: 2px solid var(--color-border);
+    padding: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.admin-title {
+    font-size: var(--font-size-xl);
+    margin: 0;
+    color: var(--color-text-primary);
+    font-family: var(--font-mono);
+}
+
+.admin-close {
+    background: none;
+    border: 2px solid var(--color-border-subtle);
+    color: var(--color-text-secondary);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xl);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-close:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-primary);
+    transform: rotate(90deg);
+}
+
+/* ========================================
+   ADMIN CONTENT
+   Main content area
+   ======================================== */
+.admin-content {
+    padding: var(--spacing-xl);
+}
+
+/* Instructions section */
+.admin-instructions {
+    background-color: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border-subtle);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.admin-instructions p {
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-mono);
+    color: var(--color-text-secondary);
+}
+
+.admin-instructions p:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================================
+   ADMIN ACTIONS
+   Action buttons row
+   ======================================== */
+.admin-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.admin-actions .btn {
+    flex: 1;
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+/* ========================================
+   WIDGET LIST
+   Draggable widget items
+   ======================================== */
+.widget-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* Individual widget item */
+.widget-item {
+    background-color: var(--color-bg-tertiary);
+    border: 2px solid var(--color-border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    cursor: move;
+    cursor: grab;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.widget-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px var(--color-primary-glow);
+    transform: translateX(5px);
+}
+
+.widget-item.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+    transform: rotate(2deg);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 30px var(--color-primary-glow);
+}
+
+.widget-item.drag-over {
+    border-style: dashed;
+    border-color: var(--color-terminal-green);
+    background-color: rgba(0, 255, 0, 0.05);
+}
+
+/* Widget item header */
+.widget-item-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.widget-drag-handle {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    cursor: grab;
+}
+
+.widget-item-header:active .widget-drag-handle {
+    cursor: grabbing;
+}
+
+.widget-item-title {
+    flex: 1;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    font-family: var(--font-mono);
+}
+
+.widget-item-id {
+    font-size: var(--font-size-xs);
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+    background-color: var(--color-bg-secondary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+}
+
+/* Widget visibility toggle */
+.widget-visibility {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.widget-visibility input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--color-primary);
+}
+
+.widget-visibility label {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Widget order indicator */
+.widget-order {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: var(--color-text-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    box-shadow: 0 0 10px var(--color-primary-glow);
+}
+
+/* ========================================
+   SUCCESS/ERROR MESSAGES
+   Feedback messages
+   ======================================== */
+.admin-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+    animation: slideInRight 0.3s ease;
+    max-width: 300px;
+}
+
+.admin-message.success {
+    background-color: rgba(0, 255, 0, 0.1);
+    border: 2px solid var(--color-terminal-green);
+    color: var(--color-terminal-green);
+}
+
+.admin-message.error {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.admin-message.info {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--color-text-secondary);
+    color: var(--color-text-secondary);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   Mobile adjustments
+   ======================================== */
+@media (max-width: 768px) {
+    .admin-panel {
+        width: 100%;
+        right: -100%;
+    }
+
+    .admin-toggle {
+        bottom: 80px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: var(--font-size-xl);
+    }
+
+    .admin-actions {
+        flex-direction: column;
+    }
+
+    .widget-item {
+        padding: var(--spacing-sm);
+    }
+
+    .widget-item-header {
+        flex-wrap: wrap;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY
+   Focus states and screen reader support
+   ======================================== */
+.admin-toggle:focus-visible,
+.admin-close:focus-visible,
+.widget-item:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Screen reader only text */
+.sr-only-admin {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ========================================
+   DARK OVERLAY (when admin panel is open)
+   Optional backdrop
+   ======================================== */
+.admin-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: var(--z-modal-backdrop);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+    backdrop-filter: blur(5px);
+}
+
+.admin-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ========================================
+   EXPORT MODAL
+   For exporting widget layout
+   ======================================== */
+.export-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-bg-secondary);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    max-width: 500px;
+    width: 90%;
+    z-index: 99999;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+    display: none;
+}
+
+.export-modal.active {
+    display: block;
+    animation: scaleUp 0.3s ease;
+}
+
+.export-modal h3 {
+    font-family: var(--font-mono);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.export-modal textarea {
+    width: 100%;
+    height: 200px;
+    background-color: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    color: var(--color-terminal-green);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    resize: vertical;
+}
+
+.export-modal-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.export-modal-actions .btn {
+    flex: 1;
+}
